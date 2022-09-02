@@ -2,6 +2,7 @@
  * [1,2,3].map();
  * https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map
  * @param {*} callback
+ * @returns {any[]} 
  */
 Array.prototype.map = function (callback, thisArg) {
   const result = [];
