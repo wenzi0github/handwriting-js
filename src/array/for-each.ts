@@ -1,5 +1,5 @@
-Array.prototype.forEach = function (callback, thisArg) {
-  if (typeof callback !== "function") {
+Array.prototype.forEach = function (callback: (value: any, index: number, array: any[]) => void, thisArg?: any) {
+  if (typeof callback !== 'function') {
     throw new TypeError(`${callback} is not a function`);
   }
   for (let i = 0; i < this.length; i++) {

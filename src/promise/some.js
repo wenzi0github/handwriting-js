@@ -1,0 +1,1 @@
+// return true when at least promise is fulfilled

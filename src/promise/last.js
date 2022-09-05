@@ -1,0 +1,1 @@
+// get the last fulfilled or rejected promise
