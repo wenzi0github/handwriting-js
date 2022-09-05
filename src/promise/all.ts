@@ -2,8 +2,8 @@
  *
  * @param {Promise[]} list
  */
-Promise.all = (list) => {
-  const result = [];
+Promise.all = <T extends readonly unknown[] | []>(list: T): Promise<any[]> => {
+  const result: Awaited<any>[] = [];
 
   let hasResolved = 0; // finished promise num
   let iteratorIndex = 0; // for-of has no key, use extra index
@@ -30,20 +30,12 @@ Promise.all = (list) => {
   });
 };
 
-const sleep = (delay) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(delay);
-    }, delay);
-  });
-};
+module.exports = Promise.all;
 
-export default Promise.all;
+// const reject1 = () => Promise.reject(2);
 
-const reject1 = () => Promise.reject(2);
-
-Promise.all([]).then(console.log);
-Promise.all([sleep(100), sleep(300), sleep(200)]).then(console.log);
-Promise.all([sleep(100), reject1(), sleep(200)])
-  .then(console.log)
-  .catch(console.error);
+// Promise.all([]).then(console.log);
+// Promise.all([sleep(100), sleep(300), sleep(200)]).then(console.log);
+// Promise.all([sleep(100), reject1(), sleep(200)])
+//   .then(console.log)
+//   .catch(console.error);
